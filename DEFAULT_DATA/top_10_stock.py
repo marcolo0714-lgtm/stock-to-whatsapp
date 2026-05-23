@@ -1,0 +1,10 @@
+TOP_TEN_STOCK = [{'Rank': 1, 'Exchange': 'NYSE', 'Symbol': '^GSPC', 'Market_Cap': 24239300.3}, 
+                 {'Rank': 2, 'Exchange': 'Nasdaq - US', 'Symbol': '^IXIC', 'Market_Cap': 11970874.0}, 
+                 {'Rank': 3, 'Exchange': 'Japan Exchange Group Inc.', 'Symbol': '^N225', 'Market_Cap': 6050365.7}, 
+                 {'Rank': 4, 'Exchange': 'Euronext', 'Symbol': '^N100', 'Market_Cap': 4369966.2}, 
+                 {'Rank': 5, 'Exchange': 'Shanghai Stock Exchange', 'Symbol': '000001.SS', 'Market_Cap': 4254450.1}, 
+                 {'Rank': 6, 'Exchange': 'LSE Group', 'Symbol': '^FTSE', 'Market_Cap': 4147279.5}, 
+                 {'Rank': 7, 'Exchange': 'Hong Kong Exchanges and Clearing', 'Symbol': '^HSI', 'Market_Cap': 4103649.8}, 
+                 {'Rank': 8, 'Exchange': 'Shenzhen Stock Exchange', 'Symbol': '399001.SZ', 'Market_Cap': 2708710.0}, 
+                 {'Rank': 9, 'Exchange': 'TMX Group', 'Symbol': '^GSPTSE', 'Market_Cap': 2297212.8}, 
+                 {'Rank': 10, 'Exchange': 'BSE India Limited', 'Symbol': '^BSESN', 'Market_Cap': 2247643.1}]
