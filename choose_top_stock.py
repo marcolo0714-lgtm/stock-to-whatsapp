@@ -3,43 +3,45 @@ import requests
 from io import StringIO
 
 # Default number of top stocks to retrieve
-stock_num = 10
+stock_num = 20
 
-# Maps WFE's standard exchange naming conventions to Twelve Data Index Tickers
+# Maps WFE's standard exchange naming conventions to Twelve Data's exchange codes, index symbols, and yfinance tickers
 # Ranking retrieved from the top 20 stocks of the (may, 2026) version of the webpage:
 # https://focus.world-exchanges.org/issue/may-2026/market-statistics
 EXCHANGE_TO_INDEX_MAP = {
+    # Format: [Twelve Data Exchange Code, Twelve Data Index, yfinance Ticker]
+    
     # 1-5
-    "Nasdaq":                            "IXIC",        # NASDAQ Composite
-    "New York Stock Exchange (NYSE)":    "GSPC",        # S&P 500 (Alternative: NYA for NYSE Composite)
-    "Shanghai Stock Exchange":           "000001.SHG",  # SSE Composite
-    "Euronext":                          "N100",        # Euronext 100
-    "Japan Exchange Group":              "N225",        # Nikkei 225
+    "Nasdaq":                               ["NASDAQ", "^IXIC"],
+    "New York Stock Exchange (NYSE)":       ["NYSE", "^GSPC"],
+    "Shanghai Stock Exchange":              ["SSE", "000001.SS"],
+    "Euronext":                             ["EURONEXT", "^N100"],
+    "Japan Exchange Group":                 ["JPX", "^N225"],
 
     # 6-10
-    "Shenzhen Stock Exchange":           "399001.SZSE", # SZSE Component
-    "Hong Kong Exchanges and Clearing":  "HSI.HKEX",    # Hang Seng Index
-    "TMX Group":                         "GSPTSE",      # S&P/TSX Composite
-    "National Stock Exchange of India":  "NSEI.NSE",    # Nifty 50
-    "BSE India Limited":                 "BSESN",       # BSE SENSEX
+    "Shenzhen Stock Exchange":              ["SZSE", "399001.SZ"],
+    "Hong Kong Exchanges and Clearing":     ["HKEX", "^HSI"],
+    "TMX Group":                            ["TSX", "^GSPTSE"],
+    "National Stock Exchange of India":     ["NSE", "^NSEI"],
+    "BSE India Limited":                    ["BSE", "^BSESN"],
 
     # 11-15
-    "Taiwan Stock Exchange":             "TWII.TWSE",   # TAIEX Dollar Index
-    "Korea Exchange":                    "KS11.KOSPI",  # KOSPI Composite
-    "Deutsche Boerse AG":                "GDAXI",       # DAX Performance Index
-    "Saudi Exchange (Tadawul)":          "TASI.TADWUL", # Tadawul All Share Index
-    "SIX Swiss Exchange":                "SSMI",        # Swiss Market Index
+    "Taiwan Stock Exchange":                ["TWSE", "^TWII"],
+    "Korea Exchange":                       ["KRX", "^KS11"],
+    "Deutsche Boerse AG":                   ["FSX", "^GDAXI"],
+    "Saudi Exchange (Tadawul)":             ["TADAWUL", "^TASI.SR"],
+    "SIX Swiss Exchange":                   ["SIX", "^SSMI"],
 
     # 16-20
-    "ASX Australian Securities Exchange": "AXJO.ASX",   # S&P/ASX 200
-    "Nasdaq Nordic and Baltics":          "OMXN40",     # OMX Nordic 40
-    "BME Spanish Exchanges":              "IBEX",       # IBEX 35
-    "Johannesburg Stock Exchange":        "J203.JSE",   # JSE All Share Index
-    "B3 - Brasil Bolsa Balcão":           "BVSP",       # IBOVESPA
+    "ASX Australian Securities Exchange":   ["ASX", "^AXJO"],
+    "Nasdaq Nordic and Baltics":            ["OMX", "^OMXN40"],
+    "BME Spanish Exchanges":                ["BME", "^IBEX"],
+    "Johannesburg Stock Exchange":          ["JSE", "^J203.JO"],
+    "B3 - Brasil Bolsa Balcão":             ["Bovespa", "^BVSP"],
 
     # Other (in top 20 of previous years, but not in 2026/5's top 20)
-    "LSE Group London Stock Exchange":    "FTSE",       # FTSE 100 Index
-    "Tehran Stock Exchange":              "TEDPIX",     # TEDPIX Index
+    "LSE Group London Stock Exchange":      ["LSE", "^FTSE"],
+    "Tehran Stock Exchange":                ["TSE", "^TEDPIX"],
 }
 
 def get_current_month_year():
@@ -88,7 +90,7 @@ def get_top_markets(num_stocks=stock_num):
         exchange_col = df.columns[0] 
         market_cap_col = df.columns[required_col_index]
         
-        # Sort values by Market Cap descending and take the top 10
+        # Sort values by Market Cap descending and take the top N
         # (Ensuring data is numeric, stripping commas/dollar signs if necessary)
         df[market_cap_col] = pd.to_numeric(df[market_cap_col].replace(',$', '', regex=True), errors='coerce')
         df = df[~df[exchange_col].astype(str).str.contains('Total', case=False, na=False)]
@@ -110,9 +112,11 @@ def get_top_markets(num_stocks=stock_num):
                 if contained_match:
                     symbol = EXCHANGE_TO_INDEX_MAP[contained_match]
                     print(f"Matched unknown exchange '{exchange_name}' to containing key '{contained_match}'")
+                    exchange_name = contained_match   # Update to the matched key for consistency
                 elif contained_by_match:
                     symbol = EXCHANGE_TO_INDEX_MAP[contained_by_match]
                     print(f"Matched unknown exchange '{exchange_name}' to contained key '{contained_by_match}'")
+                    exchange_name = contained_by_match   # Update to the matched key for consistency
                 else:
                     raise ValueError(f"Could not find a ticker symbol for exchange '{exchange_name}'.")
 
@@ -136,4 +140,4 @@ if __name__ == "__main__":
     
     print("\n--- Top " + str(stock_num) + " Global Stock Markets ---" if status == 1 else "\n--- Default List of Top 10 Global Stock Markets ---")
     for market in top_markets:
-        print(f"{market['Rank']}. {market['Exchange']} -> Ticker: {market['Symbol']}  (Market Cap: ${market['Market_Cap']:.2f}M)")
+        print(f"{market['Rank']}. {market['Exchange']} \t (Symbol: {market['Symbol']}) \t (Market Cap: ${market['Market_Cap']:.2f}M)")
