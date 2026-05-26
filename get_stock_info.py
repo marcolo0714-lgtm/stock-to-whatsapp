@@ -212,6 +212,7 @@ if __name__ == "__main__":
     TOP_STOCKS, status = get_stock_info(TOP_STOCKS)
     TOP_STOCKS, status = get_stock_status(TOP_STOCKS, use_sample_states=False)
     TOP_STOCKS, status = get_stock_quote(TOP_STOCKS)
-
+    
+    print(TOP_STOCKS)
     with open("top_stock_info.json", "w") as f:
         json.dump(TOP_STOCKS, f, indent=4)
