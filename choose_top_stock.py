@@ -5,45 +5,6 @@ from io import StringIO
 # Default number of top stocks to retrieve
 stock_num = 20
 
-# Maps WFE's standard exchange naming conventions to Twelve Data's exchange codes, index symbols, and yfinance tickers
-# Ranking retrieved from the top 20 stocks of the (may, 2026) version of the webpage:
-# https://focus.world-exchanges.org/issue/may-2026/market-statistics
-EXCHANGE_TO_INDEX_MAP = {
-    # Format: [Twelve Data Exchange Code, Twelve Data Index, yfinance Ticker]
-    
-    # 1-5
-    "Nasdaq":                               ["NASDAQ", "^IXIC"],
-    "New York Stock Exchange (NYSE)":       ["NYSE", "^GSPC"],
-    "Shanghai Stock Exchange":              ["SSE", "000001.SS"],
-    "Euronext":                             ["EURONEXT", "^N100"],
-    "Japan Exchange Group":                 ["JPX", "^N225"],
-
-    # 6-10
-    "Shenzhen Stock Exchange":              ["SZSE", "399001.SZ"],
-    "Hong Kong Exchanges and Clearing":     ["HKEX", "^HSI"],
-    "TMX Group":                            ["TSX", "^GSPTSE"],
-    "National Stock Exchange of India":     ["NSE", "^NSEI"],
-    "BSE India Limited":                    ["BSE", "^BSESN"],
-
-    # 11-15
-    "Taiwan Stock Exchange":                ["TWSE", "^TWII"],
-    "Korea Exchange":                       ["KRX", "^KS11"],
-    "Deutsche Boerse AG":                   ["FSX", "^GDAXI"],
-    "Saudi Exchange (Tadawul)":             ["TADAWUL", "^TASI.SR"],
-    "SIX Swiss Exchange":                   ["SIX", "^SSMI"],
-
-    # 16-20
-    "ASX Australian Securities Exchange":   ["ASX", "^AXJO"],
-    "Nasdaq Nordic and Baltics":            ["OMX", "^OMXN40"],
-    "BME Spanish Exchanges":                ["BME", "^IBEX"],
-    "Johannesburg Stock Exchange":          ["JSE", "^J203.JO"],
-    "B3 - Brasil Bolsa Balcão":             ["Bovespa", "^BVSP"],
-
-    # Other (in top 20 of previous years, but not in 2026/5's top 20)
-    "LSE Group London Stock Exchange":      ["LSE", "^FTSE"],
-    "Tehran Stock Exchange":                ["TSE", "^TEDPIX"],
-}
-
 def get_current_month_year():
     from datetime import datetime
     now = datetime.now()
@@ -101,29 +62,11 @@ def get_top_markets(num_stocks=stock_num):
         results = []
         for index, row in top_df.iterrows():
             exchange_name = str(row[exchange_col]).strip()
-            
-            # Look up the symbol, default to "UNKNOWN" if not found
-            symbol = EXCHANGE_TO_INDEX_MAP.get(exchange_name, "UNKNOWN")
-
-            # If we get "UNKNOWN", try to find a match by checking if the exchange name contains or is contained by any of the keys in our mapping
-            if symbol == "UNKNOWN":
-                contained_match = next((key for key in EXCHANGE_TO_INDEX_MAP if exchange_name in key), None)
-                contained_by_match = next((key for key in EXCHANGE_TO_INDEX_MAP if key in exchange_name), None)
-                if contained_match:
-                    symbol = EXCHANGE_TO_INDEX_MAP[contained_match]
-                    print(f"Matched unknown exchange '{exchange_name}' to containing key '{contained_match}'")
-                    exchange_name = contained_match   # Update to the matched key for consistency
-                elif contained_by_match:
-                    symbol = EXCHANGE_TO_INDEX_MAP[contained_by_match]
-                    print(f"Matched unknown exchange '{exchange_name}' to contained key '{contained_by_match}'")
-                    exchange_name = contained_by_match   # Update to the matched key for consistency
-                else:
-                    raise ValueError(f"Could not find a ticker symbol for exchange '{exchange_name}'.")
 
             results.append({
                 "Rank": len(results) + 1,
                 "Exchange": exchange_name,
-                "Symbol": symbol,
+                # "Symbol": symbol,
                 "Market_Cap": row[market_cap_col]
             })
             
@@ -140,4 +83,4 @@ if __name__ == "__main__":
     
     print("\n--- Top " + str(stock_num) + " Global Stock Markets ---" if status == 1 else "\n--- Default List of Top 10 Global Stock Markets ---")
     for market in top_markets:
-        print(f"{market['Rank']}. {market['Exchange']} \t (Symbol: {market['Symbol']}) \t (Market Cap: ${market['Market_Cap']:.2f}M)")
+        print(f"{market['Rank']}. {market['Exchange']} \t (Market Cap: ${market['Market_Cap']:.2f}M)")
