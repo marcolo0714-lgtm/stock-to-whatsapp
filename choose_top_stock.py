@@ -17,8 +17,9 @@ Returns:    A tuple containing:
             - A list of dictionaries with keys 'Rank', 'Exchange', 'Symbol', and 'Market_Cap' for each of the top stock markets.
             - A status code (1 if data was retrieved successfully from the webpage, 0 if the default data is being returned due to an error).
 """
-def get_top_markets(num_stocks=stock_num):
-    month, year = get_current_month_year()
+def get_top_markets(num_stocks=stock_num, use_current_month=True, month=None, year=None):
+    if use_current_month:
+        month, year = get_current_month_year()
     wfe_url = f"https://focus.world-exchanges.org/issue/{month}-{year}/market-statistics"
 
     print(f"Fetching data from: {wfe_url}")
@@ -35,10 +36,9 @@ def get_top_markets(num_stocks=stock_num):
             raise ValueError("No tables found on the page.")
 
         # Assuming the main statistics table is the first one on the page.
-        # (You may need to change the index if WFE adds formatting tables above it)
         df = tables[0]
 
-        # Find the required column by locating a column whose next neighbor contains '%' in its name.
+        # Find the (as right as possible, but still meaningful) column by locating a column whose next neighbor contains '%' in its name.
         percent_col_indices = [i for i, name in enumerate(df.columns) if '%' in str(name)]
         if not percent_col_indices:
             raise ValueError("Unable to locate a column followed by a '%' column in the table header.")
@@ -79,7 +79,7 @@ def get_top_markets(num_stocks=stock_num):
         return TOP_TEN_STOCK, 0
 
 if __name__ == "__main__":
-    top_markets, status= get_top_markets(stock_num)
+    top_markets, status= get_top_markets(stock_num, use_current_month=False, month="april", year=2015)
     
     print("\n--- Top " + str(stock_num) + " Global Stock Markets ---" if status == 1 else "\n--- Default List of Top 10 Global Stock Markets ---")
     for market in top_markets:

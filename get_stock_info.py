@@ -93,7 +93,7 @@ Retrieves the current market status (open/closed) and time to open/close for eac
 Parameters: 
     TOP_STOCKS (list): A list of dictionaries containing stock information.
     Each dictionary should represent a stock market and contain at least the keys 'Exchange' and 'Symbol'.
-    use_sample_states (bool): Whether to use sample market states for testing purposes.
+    use_sample_states (bool): Whether to use sample market states for testing purposes (to save API calls when testing).
 Returns:
     A tuple containing:
         - The updated list of stock market information with added keys for 'country', 'is_market_open', 'time_to_open', and 'time_to_close' for each stock market.
@@ -156,8 +156,17 @@ def get_stock_status(TOP_STOCKS, use_sample_states=True):
     return TOP_STOCKS, 1  # Return the enriched TOP_STOCKS list along with a success status code (1)
     
 
+"""
+Retrieves the most recent market quotes (Open, High, Low, Close), percent change, and quote price for each of the top stock markets.
+Parameters: 
+    TOP_STOCKS (list): A list of dictionaries containing stock information.
+    Each dictionary should represent a stock market and contain at least the keys 'Exchange' and 'Symbol'.
+Returns:
+    A tuple containing:
+        - The updated list of stock market information with added keys for 'Open', 'High', 'Low', 'Close', 'Quote_Date', 'Daily_Change' for each stock market.
+        - A status code (1 if data was retrieved successfully, 0 if an error occurred).
+"""
 def get_stock_quote(TOP_STOCKS):
-    print(TOP_STOCKS)
     tickers = list([stock['Index'] for stock in TOP_STOCKS])
     print("Fetching data from Yahoo Finance...\n")
 
@@ -173,13 +182,14 @@ def get_stock_quote(TOP_STOCKS):
 
     # 3. Process and calculate the percentage change for each exchange
     for stock in TOP_STOCKS:
-        print()
         name = stock['Exchange']
         ticker = stock['Index']
 
         # Extract the DataFrame for the specific ticker and drop empty rows (like market holidays)
         df = data[ticker].dropna()
-        print(df)
+
+        # print "Open", "High", "Low", "Close" values for each exchange
+        # print(df)
         
         # Ensure we have at least 2 days of data to compare
         if len(df) >= 2:
@@ -208,11 +218,10 @@ def get_stock_quote(TOP_STOCKS):
 
 if __name__ == "__main__":
     from choose_top_stock import get_top_markets
-    TOP_STOCKS, status = get_top_markets(20)  
+    TOP_STOCKS, status = get_top_markets(num_stocks=20)  
     TOP_STOCKS, status = get_stock_info(TOP_STOCKS)
     TOP_STOCKS, status = get_stock_status(TOP_STOCKS, use_sample_states=False)
     TOP_STOCKS, status = get_stock_quote(TOP_STOCKS)
-    
-    print(TOP_STOCKS)
+
     with open("top_stock_info.json", "w") as f:
         json.dump(TOP_STOCKS, f, indent=4)

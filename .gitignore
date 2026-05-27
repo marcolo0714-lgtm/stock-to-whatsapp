@@ -1,3 +1,4 @@
 .env
 __pycache__/
 *.pdf
+whatsapp_session_data/
