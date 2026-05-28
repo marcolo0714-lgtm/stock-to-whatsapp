@@ -36,7 +36,7 @@ def generate_pdf(json_data, output_filename="market_report.pdf"):
     # 3. Add Header
     hkt = ZoneInfo("Asia/Hong_Kong")
     now_str = datetime.datetime.now(hkt).strftime('%Y-%m-%d %H:%M:%S HKT')
-    elements.append(Paragraph("<b>Comprehensive Global Market Analysis</b>", title_style))
+    elements.append(Paragraph("<b>Top Stock Exchanges Data</b>", title_style))
     elements.append(Paragraph(f"Generated using program written by LO Chun Ling", subtitle_style))
     elements.append(Paragraph(f"Generated on: {now_str}", subtitle_style))
 
@@ -63,11 +63,11 @@ def generate_pdf(json_data, output_filename="market_report.pdf"):
         index = item.get("Index", "N/A")
         
         # Financials
-        market_cap = f"{float(item.get('Market_Cap', 0)):,.2f}"
-        open_price = f"{float(item.get('Open', 0)):,.2f}"
-        high_price = f"{float(item.get('High', 0)):,.2f}"
-        low_price = f"{float(item.get('Low', 0)):,.2f}"
-        close_price = f"{float(item.get('Close', 0)):,.2f}"
+        market_cap = f"{float(item.get('Market_Cap', 0)):,.2f}" if item.get('Market_Cap', 0) is not None else "N/A"
+        open_price = f"{float(item.get('Open', 0)):,.2f}" if item.get('Open', 0) is not None else "N/A"
+        high_price = f"{float(item.get('High', 0)):,.2f}" if item.get('High', 0) is not None else "N/A"
+        low_price = f"{float(item.get('Low', 0)):,.2f}" if item.get('Low', 0) is not None else "N/A"
+        close_price = f"{float(item.get('Close', 0)):,.2f}" if item.get('Close', 0) is not None else "N/A"
         
         # Performance
         daily_change = float(item.get("Daily_Change", 0)) if item.get("Daily_Change") != "N/A" else "N/A"
@@ -75,10 +75,14 @@ def generate_pdf(json_data, output_filename="market_report.pdf"):
         change_sign = "+" if daily_change != "N/A" and daily_change >= 0 else ""
         
         # Market Status & Timing
-        is_open = item.get("is_market_open", False)
-        status_text = "<font color='green'>OPEN</font>" if is_open else "<font color='red'>CLOSED</font>"
-        time_info = f"Closes in: {item.get('time_to_close')}" if is_open else f"Opens in: {item.get('time_to_open')}"
-        date = item.get("Quote_Date", "N/A")
+        is_open = item.get("is_market_open", None)
+        if is_open is not None:
+            status_text = "<font color='green'>OPEN</font>" if is_open else "<font color='red'>CLOSED</font>"
+            time_info = f"Closes in: {item.get('time_to_close')}" if is_open else f"Opens in: {item.get('time_to_open')}"
+            date = item.get("Quote_Date", "N/A")
+        else:
+            status_text = "N/A"
+            time_info = "N/A"
 
         # Create rich-text Paragraphs for each cell to handle grouping and line breaks
         col_rank = Paragraph(rank, cell_center)

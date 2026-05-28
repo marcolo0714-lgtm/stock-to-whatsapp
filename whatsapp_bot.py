@@ -48,7 +48,7 @@ Returns: A string of the newest message in the Whatsapp Chat if the message is t
 """
 def find_newest_message(page):
     
-    def selector_exists(selector, timeout=200):
+    def selector_exists(selector, timeout=100):
         """Check if a selector exists without raising an exception"""
         try:
             page.wait_for_selector(selector, timeout=timeout)
@@ -216,11 +216,10 @@ def run_whatsapp_bot(pdf_filepath):
                         os.system(command)
                         page.keyboard.press('Control+V')
                         page.fill(send_text_selector, "Here is your requested top stock info PDF.")
-                        page.wait_for_timeout(4000) # Wait for upload to complete
+                        page.wait_for_timeout(2000) # Wait for upload to complete
                         page.click(file_button_selector, timeout=2000)
                         
                         print(f"✅ PDF sent successfully to recipient!")
-                        page.wait_for_timeout(2000) # Wait for send to complete
 
                     else:
                         print("🤖 AI Detected Intent: NO. Waiting for next message...")
@@ -228,8 +227,8 @@ def run_whatsapp_bot(pdf_filepath):
             except Exception as e:
                 print(f"Loop error (likely DOM changed): {e}")
                 
-            # Check every 3 seconds to avoid spamming the CPU
-            time.sleep(3)
+            # Check every 2 seconds to avoid spamming the CPU
+            time.sleep(2)
     
 
 if __name__ == "__main__":

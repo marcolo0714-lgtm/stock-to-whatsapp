@@ -123,21 +123,14 @@ def get_stock_status(TOP_STOCKS, use_sample_states=True):
         if use_sample_states:
             with open(json_dir / "global_states.json", "r") as f:
                 global_states = json.load(f)
-            with open(json_dir / "global_exchanges.json", "r") as f:
-                global_exchanges = json.load(f)
         else:
             # Get states for ALL exchanges globally
             global_states_url = f"https://api.twelvedata.com/market_state?apikey={API_KEY}"
             global_states = requests.get(global_states_url).json()
 
-            # Get metadata for ALL stock exchanges globally
-            global_exchanges_url = f"https://api.twelvedata.com/exchanges?type=stock&apikey={API_KEY}"
-            global_exchanges = requests.get(global_exchanges_url).json().get('data', [])
-
             with open(json_dir / "global_states.json", "w") as f:
                 json.dump(global_states, f, indent=4)
-            with open(json_dir / "global_exchanges.json", "w") as f:
-                json.dump(global_exchanges, f, indent=4)
+
     except Exception as e:
         print("Error fetching data from Twelve Data API. Please check your API key and network connection.")
         print(f"Exception details: {e}")

@@ -63,7 +63,7 @@ COHERE_API_KEY = your_cohere_api_key
 Both keys can be obtained for free, but you need to create accounts, and their usage are rate-limited:
 - TWELVEDATA_API_KEY: https://twelvedata.com/
   - Free accounts are limited to 8 API calls per minute and 800 API calls per day.
-  - This program uses 2 API calls for processing each PDF request from recipient.
+  - This program uses 1 API call for processing each PDF request from recipient.
 - COHERE_API_KEY: https://dashboard.cohere.com/
   - Free accounts are limited to 20 API calls per minute.
   - This program uses 1 API call for processing each recipient's Whatsapp message.
@@ -82,6 +82,9 @@ python whatsapp_bot.py
 5. The bot will listen for incoming messages from the selected recipient.
 6. If Cohere detects a request for a stock market report, the bot generates `market_report.pdf` and sends it.
 
+## Video Showcase
+<video src="github_asset/Stock-to-whatsapp_showcase.mp4" width="100%" controls></video>
+
 ## Limitations
 
 - The stock mapping in `get_stock_info.py` is hardcoded based on the Twelve Data API on stock exchange information, my limited knowledge, and checking using Gen-AI. I cannot gaurantee that the mapping to stock symbols and representative indices are 100% correct. 
@@ -95,4 +98,4 @@ python whatsapp_bot.py
 
 1. Observe the rate limits of Twelve Data and Cohere API calls, as shown in the Configuration session.
 2. Browser Automation techniques (mainly the Playwright library) are used when visiting WFE webpage and for the Whatsapp bot. While personal use of this technique should cause no consequences, please note that inappropriate use of Browser Automation, such as visiting WFE webpage at an extremely high frequency and sending Whatsapp messages at a high rate, may cause legal consequences under their Terms and Conditions.
-3. This repository does not include a license file. Only use the code for non-conmmercial purposes.
+3. This repository, images, and demo-walkthrough do not include any license files. Only use the code for non-conmmercial purposes.
