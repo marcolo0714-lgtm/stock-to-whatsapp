@@ -1,0 +1,7 @@
+python-dotenv
+playwright
+cohere
+reportlab
+yfinance
+pandas
+requests

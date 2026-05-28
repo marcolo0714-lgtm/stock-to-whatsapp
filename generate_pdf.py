@@ -6,6 +6,9 @@ from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, 
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_LEFT, TA_CENTER, TA_RIGHT
 
+"""
+Generate the PDF of top stock info according to json_data, and placed the PDF at output_filename.
+"""
 def generate_pdf(json_data, output_filename="market_report.pdf"):
     # 1. Setup Document in Landscape
     # A4 landscape dimensions are automatically handled by passing landscape(A4)
@@ -159,7 +162,10 @@ def generate_pdf(json_data, output_filename="market_report.pdf"):
     pdf.build(elements)
     print(f"✅ ReportLab PDF successfully generated: {output_filename}")
 
-
+"""
+Obtain top stock info with functions in choose_top_stock.py and get_stock_info.py, 
+then use generate_pdf() in this file to create the PDF.
+"""
 def get_info_and_generate_pdf():
     import json
     from choose_top_stock import get_top_markets
@@ -178,7 +184,7 @@ def get_info_and_generate_pdf():
         json_list = json.load(f)
     
     # Generate the PDF report using the loaded JSON data
-    generate_pdf(json_list)
+    generate_pdf(json_list, output_filename="market_report.pdf")
 
 if __name__ == "__main__":
     get_info_and_generate_pdf()

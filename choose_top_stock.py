@@ -57,6 +57,7 @@ def get_top_markets(num_stocks=stock_num, use_current_month=True, month=None, ye
         df = df[~df[exchange_col].astype(str).str.contains('Total', case=False, na=False)]
         top_df = df.nlargest(num_stocks, market_cap_col)
 
+        # Print the table of top stocks with structure according to WFE website
         # print(top_df)
 
         results = []

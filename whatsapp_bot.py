@@ -9,11 +9,13 @@ from generate_pdf import get_info_and_generate_pdf
 load_dotenv()
 client = os.getenv("COHERE_API_KEY")
 
-
+"""
+Uses Cohere AI API to determine if the user is asking for the top stock PDF.
+Returns: 0 if the user is NOT asking for the top stock PDF.
+         1 if the user IS asking for the top stock PDF.
+         2 if the API cannot be called properly.
+"""
 def detect_intent(message_text):
-    """
-    Uses Simple AI to determine if the user is asking for the stock PDF.
-    """
     if not message_text or len(message_text) < 2:
         return False
         
@@ -38,16 +40,18 @@ def detect_intent(message_text):
         print(f"AI Error: {e}")
         return 2
 
-
+"""
+Finds the newest message by CSS selector using binary search on layer1 and layer2.
+First binary searches layer1 (with layer2 = 1), then binary searches layer2 (with found layer1).
+Returns: A string of the newest message in the Whatsapp Chat if the message is text only.
+         Empty string is returned otherwise.
+"""
 def find_newest_message(page):
-    """
-    Finds the newest message using binary search on layer1 and layer2.
-    First binary searches layer1 (with layer2 = 1), then binary searches layer2 (with found layer1).
-    """
+    
     def selector_exists(selector, timeout=200):
         """Check if a selector exists without raising an exception"""
         try:
-            page.wait_for_selector(selector, timeout=200)
+            page.wait_for_selector(selector, timeout=timeout)
             return True
         except:
             return False
@@ -154,7 +158,9 @@ def find_newest_message(page):
         print(best_layer1, best_layer2)
         return ""
 
-
+"""
+The main loop to automate detection of message and sending of the PDF file when needed.
+"""
 def run_whatsapp_bot(pdf_filepath):
     main_search_selector = "#_r_9_"
     input_field_selector = "#main > footer > div.x1n2onr6.xhtitgo.x9f619.x78zum5.x1q0g3np.xuk3077.xjbqb8w.x1wiwyrm.xquzyny.xvc5jky.x11t971q.xnpuxes.copyable-area > div > span > div > div > div > div.x1n2onr6.xh8yej3.xjdcl3y.lexical-rich-text-input > div.x1hx0egp.x6ikm8r.x1odjw0f.x1k6rcq7.x6prxxf > p"
@@ -191,13 +197,14 @@ def run_whatsapp_bot(pdf_filepath):
         print("🎧 Now listening for PDF requests...")
         while True:
             try:
-                # 2. 
+                # 2. Detect the latest message in each loop, so as to know whether AI needs to evaluate the message
                 incoming_message = find_newest_message(page)
+
                 if incoming_message != "" and incoming_message != previous_message:
                     print(f"📩 New Message Detected: {incoming_message}")
                     previous_message = incoming_message
                     
-                    # Pass to our Cohere AI
+                    # 3. Pass to our Cohere AI
                     if detect_intent(incoming_message) == 1:
                         print("🤖 AI Detected Intent: YES! Generating and sending PDF...")
                         
@@ -211,7 +218,7 @@ def run_whatsapp_bot(pdf_filepath):
                         page.click(file_button_selector, timeout=2000)
                         
                         print(f"✅ PDF sent successfully to recipient!")
-                        page.wait_for_timeout(5000) # Wait for send to complete
+                        page.wait_for_timeout(2000) # Wait for send to complete
 
                     else:
                         print("🤖 AI Detected Intent: NO. Waiting for next message...")
