@@ -76,11 +76,14 @@ def get_top_markets(num_stocks=stock_num, use_current_month=True, month=None, ye
     except Exception as e:
         print(f"An error occurred: {e}")
         print(f"Returning a default list of top 10 exchanges from may 2026.")
-        from DEFAULT_DATA.top_10_stock import TOP_TEN_STOCK
+        try:
+            from helper_program.DEFAULT_DATA.top_10_stock import TOP_TEN_STOCK
+        except ModuleNotFoundError:
+            from DEFAULT_DATA.top_10_stock import TOP_TEN_STOCK
         return TOP_TEN_STOCK, 0
 
 if __name__ == "__main__":
-    top_markets, status= get_top_markets(stock_num, use_current_month=False, month="april", year=2015)
+    top_markets, status= get_top_markets(stock_num, use_current_month=True, month="april", year=2015)
     
     print("\n--- Top " + str(stock_num) + " Global Stock Markets ---" if status == 1 else "\n--- Default List of Top 10 Global Stock Markets ---")
     for market in top_markets:

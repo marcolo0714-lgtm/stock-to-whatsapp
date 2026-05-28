@@ -1,6 +1,6 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
-from openai import api_key
 import requests
 import json
 import yfinance as yf
@@ -79,7 +79,7 @@ def get_stock_info(TOP_STOCKS):
                 stock['Exchange'] = contained_by_match  # Update the exchange name to the matched key for consistency
             else:
                 print(f"Could not find a mapping for exchange '{exchange}'. Defaulting to use default data.")
-                from DEFAULT_DATA.top_10_stock import TOP_TEN_STOCK
+                from helper_program.DEFAULT_DATA.top_10_stock import TOP_TEN_STOCK
                 TOP_STOCKS = TOP_TEN_STOCK
                 return TOP_STOCKS, 2  # Return the default data and a status code indicating default data usage
             
@@ -116,11 +116,14 @@ def get_stock_status(TOP_STOCKS, use_sample_states=True):
     # =====================================================================
     print("Fetching global market states and metadata...")
 
+    base_dir = Path(__file__).resolve().parent
+    json_dir = base_dir / "json_data"
+
     try:
         if use_sample_states:
-            with open("global_states.json", "r") as f:
+            with open(json_dir / "global_states.json", "r") as f:
                 global_states = json.load(f)
-            with open("global_exchanges.json", "r") as f:
+            with open(json_dir / "global_exchanges.json", "r") as f:
                 global_exchanges = json.load(f)
         else:
             # Get states for ALL exchanges globally
@@ -131,9 +134,9 @@ def get_stock_status(TOP_STOCKS, use_sample_states=True):
             global_exchanges_url = f"https://api.twelvedata.com/exchanges?type=stock&apikey={API_KEY}"
             global_exchanges = requests.get(global_exchanges_url).json().get('data', [])
 
-            with open("global_states.json", "w") as f:
+            with open(json_dir / "global_states.json", "w") as f:
                 json.dump(global_states, f, indent=4)
-            with open("global_exchanges.json", "w") as f:
+            with open(json_dir / "global_exchanges.json", "w") as f:
                 json.dump(global_exchanges, f, indent=4)
     except Exception as e:
         print("Error fetching data from Twelve Data API. Please check your API key and network connection.")
@@ -218,10 +221,17 @@ def get_stock_quote(TOP_STOCKS):
 
 if __name__ == "__main__":
     from choose_top_stock import get_top_markets
+
     TOP_STOCKS, status = get_top_markets(num_stocks=20)  
     TOP_STOCKS, status = get_stock_info(TOP_STOCKS)
     TOP_STOCKS, status = get_stock_status(TOP_STOCKS, use_sample_states=False)
     TOP_STOCKS, status = get_stock_quote(TOP_STOCKS)
 
-    with open("top_stock_info.json", "w") as f:
-        json.dump(TOP_STOCKS, f, indent=4)
+    try:
+        with open("helper_program/json_data/top_stock_info.json", "w") as f:
+            json.dump(TOP_STOCKS, f, indent=4)
+            print("Information obtained and updated!")
+    except FileNotFoundError:
+        with open("json_data/top_stock_info.json", "w") as f:
+            json.dump(TOP_STOCKS, f, indent=4)
+            print("Information obtained and updated!")

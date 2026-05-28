@@ -166,21 +166,31 @@ def generate_pdf(json_data, output_filename="market_report.pdf"):
 Obtain top stock info with functions in choose_top_stock.py and get_stock_info.py, 
 then use generate_pdf() in this file to create the PDF.
 """
+from pathlib import Path
+
+
 def get_info_and_generate_pdf():
     import json
-    from choose_top_stock import get_top_markets
-    from get_stock_info import get_stock_info, get_stock_status, get_stock_quote
+    try:
+        from helper_program.choose_top_stock import get_top_markets
+        from helper_program.get_stock_info import get_stock_info, get_stock_status, get_stock_quote
+    except ModuleNotFoundError:
+        from choose_top_stock import get_top_markets
+        from get_stock_info import get_stock_info, get_stock_status, get_stock_quote
+
+    base_dir = Path(__file__).resolve().parent
+    json_path = base_dir / "json_data" / "top_stock_info.json"
 
     # Prepare TOP_STOCKS json to generate the PDF
-    TOP_STOCKS, status = get_top_markets(num_stocks=10, use_current_month = True, month="november", year=2019)  
+    TOP_STOCKS, status = get_top_markets(num_stocks=10, use_current_month = True, month="September", year=2017)  
     TOP_STOCKS, status = get_stock_info(TOP_STOCKS)
     TOP_STOCKS, status = get_stock_status(TOP_STOCKS, use_sample_states=False)
     TOP_STOCKS, status = get_stock_quote(TOP_STOCKS)
     
     # Write to top_stock_info.json for reference, then read from it
-    with open("top_stock_info.json", "w") as f:
+    with open(json_path, "w") as f:
         json.dump(TOP_STOCKS, f, indent=4)
-    with open("top_stock_info.json", "r") as f:
+    with open(json_path, "r") as f:
         json_list = json.load(f)
     
     # Generate the PDF report using the loaded JSON data

@@ -14,11 +14,11 @@ A Python automation project that generates a top stock market PDF report and sen
 ## Key files
 
 - `whatsapp_bot.py` - main automation script and WhatsApp listener.
-- `generate_pdf.py` - collects stock data and generates `market_report.pdf`.
-- `get_stock_info.py` - maps exchanges to symbols, fetches market status from Twelve Data, and fetches quotes from yfinance.
-- `choose_top_stock.py` - scrapes WFE monthly reports and selects the top stock markets.
-- `global_exchanges.json`, `global_states.json` - local cached market metadata and states.
-- `top_stock_info.json` - generated JSON with the final stock report data.
+- `helper_program/generate_pdf.py` - collects stock data and generates `market_report.pdf`.
+- `helper_program/get_stock_info.py` - maps exchanges to symbols, fetches market status from Twelve Data, and fetches quotes from yfinance.
+- `helper_program/choose_top_stock.py` - scrapes WFE monthly reports and selects the top stock markets.
+- `helper_program/json_data/global_exchanges.json`, `helper_program/json_data/global_states.json` - local cached market metadata and states.
+- `helper_program/json_data/top_stock_info.json` - generated JSON with the final stock report data.
 
 ## Requirements
 

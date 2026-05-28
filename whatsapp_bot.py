@@ -3,7 +3,7 @@ import time
 from dotenv import load_dotenv
 from playwright.sync_api import sync_playwright
 import cohere
-from generate_pdf import get_info_and_generate_pdf
+from helper_program.generate_pdf import get_info_and_generate_pdf
 
 # Load your COHERE_API_KEY from a .env file
 load_dotenv()
@@ -85,7 +85,7 @@ def find_newest_message(page):
     best_layer1 = None
     
     while low_layer1 <= high_layer1:
-        print(low_layer1, high_layer1)
+        # print(low_layer1, high_layer1)
         mid_layer1 = (low_layer1 + high_layer1) // 2
         
         # Try message_selector2 with layer2=1
@@ -107,7 +107,7 @@ def find_newest_message(page):
     best_layer2 = None
     
     while low_layer2 <= high_layer2:
-        print(low_layer2, high_layer2)
+        # print(low_layer2, high_layer2)
         mid_layer2 = (low_layer2 + high_layer2) // 2
         
         # Try message_selector2
@@ -127,15 +127,15 @@ def find_newest_message(page):
     # Fetch the message using found layer1 and layer2
     try:
         incoming_message = page.locator(get_selector2(best_layer1, best_layer2)).text_content(timeout=1000)
-        print(best_layer1, best_layer2)
-        print(incoming_message)
+        # print(best_layer1, best_layer2)
+        print(f"Latest message: {incoming_message}")
         return incoming_message
     except:
         pass
     try:
         incoming_message = page.locator(get_selector2a(best_layer1, best_layer2)).text_content(timeout=1000)
-        print(best_layer1, best_layer2)
-        print(incoming_message)
+        # print(best_layer1, best_layer2)
+        print(f"Latest message: {incoming_message}")
         return incoming_message
     except:
         # Try selector1 if layer2=1. Selector3 skipped as they are non-text element only to aid the binary search.
@@ -166,6 +166,7 @@ def run_whatsapp_bot(pdf_filepath):
     input_field_selector = "#main > footer > div.x1n2onr6.xhtitgo.x9f619.x78zum5.x1q0g3np.xuk3077.xjbqb8w.x1wiwyrm.xquzyny.xvc5jky.x11t971q.xnpuxes.copyable-area > div > span > div > div > div > div.x1n2onr6.xh8yej3.xjdcl3y.lexical-rich-text-input > div.x1hx0egp.x6ikm8r.x1odjw0f.x1k6rcq7.x6prxxf > p"
     send_button_selector = "#main > footer > div.x1n2onr6.xhtitgo.x9f619.x78zum5.x1q0g3np.xuk3077.xjbqb8w.x1wiwyrm.xquzyny.xvc5jky.x11t971q.xnpuxes.copyable-area > div > span > div > div > div > div.x9f619.x78zum5.x6s0dn4.xl56j7k.xpvyfi4.x2lah0s.x1c4vz4f.x1fns5xo.x1ba4aug.x1c9tyrk.xeusxvb.x1pahc9y.x1ertn4p.x1pse0pq.xpcyujq.xfn3atn.x1ypdohk.x1m2oepg > div > span > div > button > div > div > div:nth-child(1) > span"
     file_button_selector ="#app > div > div > div.x78zum5.xdt5ytf.x5yr21d > div > div.x10l6tqk.x13vifvy.x1o0tod.x78zum5.xh8yej3.x5yr21d.x6ikm8r.x10wlt62.x47corl > div.x9f619.x1n2onr6.x5yr21d.x6ikm8r.x10wlt62.x17dzmu4.x1i1dayz.x2ipvbc.xjdofhw.xyyilfv.x1iyjqo2.xpilrb4.x1t7ytsu.x1vb5itz.x12xzxwr > div > span > div > div > div > div.x1n2onr6.xupqr0c.x78zum5.x1r8uery.x1iyjqo2.xdt5ytf.x1hc1fzr.x6ikm8r.x10wlt62 > div > div.x78zum5.x1c4vz4f.x2lah0s.x1helyrv.x6s0dn4.x1qughib.x178xt8z.x13fuv20.xx42vgk.x1y1aw1k.xwib8y2.xf7dkkf.xv54qhq > div.x1247r65.xng8ra > span > div > div > span"
+    send_text_selector = "#app > div > div > div.x78zum5.xdt5ytf.x5yr21d > div > div.x10l6tqk.x13vifvy.x1o0tod.x78zum5.xh8yej3.x5yr21d.x6ikm8r.x10wlt62.x47corl > div.x9f619.x1n2onr6.x5yr21d.x6ikm8r.x10wlt62.x17dzmu4.x1i1dayz.x2ipvbc.xjdofhw.xyyilfv.x1iyjqo2.xpilrb4.x1t7ytsu.x1vb5itz.x12xzxwr > div > span > div > div > div > div.x1n2onr6.xupqr0c.x78zum5.x1r8uery.x1iyjqo2.xdt5ytf.x1hc1fzr.x6ikm8r.x10wlt62 > div > div.x1c4vz4f.xs83m0k.xdl72j9.x1g77sc7.x78zum5.xozqiw3.x1oa3qoh.x12fk4p8.xeuugli.x2lwn1j.x1nhvcw1.xdt5ytf.x6s0dn4.x1n2onr6.x6ikm8r.x10wlt62.x5yr21d > div.x1c4vz4f.xs83m0k.xdl72j9.x1g77sc7.x78zum5.xozqiw3.x1oa3qoh.x12fk4p8.xeuugli.x1nhvcw1.xdt5ytf.x6s0dn4.x1n2onr6.xbktkl8.x16ovd2e.xvtqlqk.xvpt6g3.xdx6fka.xh8yej3 > div > div > div.x1n2onr6.xh8yej3.x1iyjqo2.xs83m0k.x1t1x2f9.xeuugli.x1k70j0n.x14z9mp.xzueoph.x1lziwak.xisnujt.x14ug900.x1vvkbs.x126k92a.x1hx0egp.lexical-rich-text-input > div.x1hx0egp.x6ikm8r.x1odjw0f.x1k6rcq7.x1lkfr7t > p"
     print("🚀 Starting WhatsApp Playwright Automation...")
     
     # Use a persistent context so you don't have to scan the QR code every time
@@ -214,6 +215,7 @@ def run_whatsapp_bot(pdf_filepath):
                         command = f"powershell Set-Clipboard -LiteralPath {pdf_filepath}"
                         os.system(command)
                         page.keyboard.press('Control+V')
+                        page.fill(send_text_selector, "Here is your requested top stock info PDF.")
                         page.wait_for_timeout(4000) # Wait for upload to complete
                         page.click(file_button_selector, timeout=2000)
                         

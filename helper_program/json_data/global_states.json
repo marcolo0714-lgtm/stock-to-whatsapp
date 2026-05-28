@@ -4,7 +4,7 @@
         "code": "XNYS",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -13,7 +13,7 @@
         "code": "XASE",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -22,7 +22,7 @@
         "code": "ARCX",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -31,7 +31,7 @@
         "code": "XNGS",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -40,7 +40,7 @@
         "code": "XNMS",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -49,7 +49,7 @@
         "code": "XNCM",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -58,7 +58,7 @@
         "code": "IEXG",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -67,7 +67,7 @@
         "code": "BATS",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -77,8 +77,8 @@
         "country": "",
         "is_market_open": true,
         "time_to_open": "00:00:00",
-        "time_to_close": "14:30:39",
-        "time_after_open": "09:29:20"
+        "time_to_close": "07:08:25",
+        "time_after_open": "16:51:34"
     },
     {
         "name": "DIGITAL CURRENCY",
@@ -86,15 +86,15 @@
         "country": "",
         "is_market_open": true,
         "time_to_open": "00:00:00",
-        "time_to_close": "00:30:39",
-        "time_after_open": "23:29:20"
+        "time_to_close": "17:08:25",
+        "time_after_open": "06:51:34"
     },
     {
         "name": "OTC",
         "code": "OTCQ",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -103,7 +103,7 @@
         "code": "OTCB",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -112,7 +112,7 @@
         "code": "PINX",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -121,7 +121,7 @@
         "code": "EXPM",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -130,7 +130,7 @@
         "code": "PSGM",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -139,7 +139,7 @@
         "code": "XSTO",
         "country": "Sweden",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -148,7 +148,7 @@
         "code": "XHEL",
         "country": "Finland",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -157,7 +157,7 @@
         "code": "XCSE",
         "country": "Denmark",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -166,7 +166,7 @@
         "code": "XOSL",
         "country": "Norway",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -174,17 +174,17 @@
         "name": "MOEX",
         "code": "MISX",
         "country": "Russia",
-        "is_market_open": false,
-        "time_to_open": "07:20:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "08:47:26",
+        "time_after_open": "00:01:34"
     },
     {
         "name": "JPX",
         "code": "XJPX",
         "country": "Japan",
         "is_market_open": false,
-        "time_to_open": "00:30:40",
+        "time_to_open": "17:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -192,17 +192,17 @@
         "name": "Munich",
         "code": "XMUN",
         "country": "Germany",
-        "is_market_open": false,
-        "time_to_open": "06:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "11:08:26",
+        "time_after_open": "00:51:34"
     },
     {
         "name": "KRX",
         "code": "XKRX",
         "country": "South Korea",
         "is_market_open": false,
-        "time_to_open": "00:30:40",
+        "time_to_open": "17:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -211,7 +211,7 @@
         "code": "XLON",
         "country": "United Kingdom",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -220,7 +220,7 @@
         "code": "XTAI",
         "country": "Taiwan",
         "is_market_open": false,
-        "time_to_open": "01:30:40",
+        "time_to_open": "18:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -229,7 +229,7 @@
         "code": "XMIL",
         "country": "Italy",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -238,7 +238,7 @@
         "code": "XMEX",
         "country": "Mexico",
         "is_market_open": false,
-        "time_to_open": "15:00:40",
+        "time_to_open": "07:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -247,7 +247,7 @@
         "code": "XASX",
         "country": "Australia",
         "is_market_open": false,
-        "time_to_open": "00:30:40",
+        "time_to_open": "17:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -255,17 +255,17 @@
         "name": "SGX",
         "code": "XSES",
         "country": "Singapore",
-        "is_market_open": false,
-        "time_to_open": "01:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "02:08:26",
+        "time_after_open": "05:51:34"
     },
     {
         "name": "SIX",
         "code": "XSWX",
         "country": "Switzerland",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -274,7 +274,7 @@
         "code": "XTSE",
         "country": "Canada",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -283,7 +283,7 @@
         "code": "NEOE",
         "country": "Canada",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -292,7 +292,7 @@
         "code": "XETR",
         "country": "Germany",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -301,7 +301,7 @@
         "code": "XPAR",
         "country": "France",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -309,17 +309,17 @@
         "name": "FSX",
         "code": "XFRA",
         "country": "Germany",
-        "is_market_open": false,
-        "time_to_open": "06:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "13:08:26",
+        "time_after_open": "00:51:34"
     },
     {
         "name": "VSE",
         "code": "XWBO",
         "country": "Austria",
         "is_market_open": false,
-        "time_to_open": "07:25:40",
+        "time_to_open": "00:03:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -328,7 +328,7 @@
         "code": "XAMS",
         "country": "Netherlands",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -337,7 +337,7 @@
         "code": "XMAD",
         "country": "Spain",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -346,7 +346,7 @@
         "code": "ROCO",
         "country": "Taiwan",
         "is_market_open": false,
-        "time_to_open": "01:30:40",
+        "time_to_open": "18:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -355,7 +355,7 @@
         "code": "XDUB",
         "country": "Ireland",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -364,7 +364,7 @@
         "code": "XLIS",
         "country": "Portugal",
         "is_market_open": false,
-        "time_to_open": "08:30:40",
+        "time_to_open": "01:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -373,7 +373,7 @@
         "code": "XBRU",
         "country": "Belgium",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -381,44 +381,44 @@
         "name": "XHAM",
         "code": "XHAM",
         "country": "Germany",
-        "is_market_open": false,
-        "time_to_open": "06:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "11:08:26",
+        "time_after_open": "00:51:34"
     },
     {
         "name": "XDUS",
         "code": "XDUS",
         "country": "Germany",
-        "is_market_open": false,
-        "time_to_open": "06:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "11:08:26",
+        "time_after_open": "00:51:34"
     },
     {
         "name": "XHAN",
         "code": "XHAN",
         "country": "Germany",
-        "is_market_open": false,
-        "time_to_open": "06:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "11:08:26",
+        "time_after_open": "00:51:34"
     },
     {
         "name": "SET",
         "code": "XBKK",
         "country": "Thailand",
-        "is_market_open": false,
-        "time_to_open": "03:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "02:38:26",
+        "time_after_open": "03:51:34"
     },
     {
         "name": "XSAP",
         "code": "XSAP",
         "country": "Japan",
         "is_market_open": false,
-        "time_to_open": "00:30:40",
+        "time_to_open": "17:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -426,17 +426,17 @@
         "name": "HKEX",
         "code": "XHKG",
         "country": "Hong Kong",
-        "is_market_open": false,
-        "time_to_open": "02:00:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "01:08:26",
+        "time_after_open": "05:21:34"
     },
     {
         "name": "NDXB",
         "code": "DIFX",
         "country": "United Arab Emirates",
         "is_market_open": false,
-        "time_to_open": "102:30:40",
+        "time_to_open": "95:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -445,7 +445,7 @@
         "code": "XDFM",
         "country": "United Arab Emirates",
         "is_market_open": false,
-        "time_to_open": "102:30:40",
+        "time_to_open": "95:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -454,7 +454,7 @@
         "code": "XNAS",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -463,7 +463,7 @@
         "code": "OTCM",
         "country": "United States",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -472,7 +472,7 @@
         "code": "XBOG",
         "country": "Colombia",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -482,15 +482,15 @@
         "country": "United States",
         "is_market_open": true,
         "time_to_open": "00:00:00",
-        "time_to_close": "04:29:40",
-        "time_after_open": "19:29:20"
+        "time_to_close": "21:07:26",
+        "time_after_open": "02:51:34"
     },
     {
         "name": "TSXV",
         "code": "XTSX",
         "country": "Canada",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -499,7 +499,7 @@
         "code": "XSAU",
         "country": "Saudi Arabia",
         "is_market_open": false,
-        "time_to_open": "79:30:40",
+        "time_to_open": "72:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -507,26 +507,26 @@
         "name": "SSE",
         "code": "XSHG",
         "country": "China",
-        "is_market_open": false,
-        "time_to_open": "02:00:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "00:08:26",
+        "time_after_open": "05:21:34"
     },
     {
         "name": "SZSE",
         "code": "XSHE",
         "country": "China",
-        "is_market_open": false,
-        "time_to_open": "02:00:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "00:08:26",
+        "time_after_open": "05:21:34"
     },
     {
         "name": "PSX",
         "code": "XKAR",
         "country": "Pakistan",
         "is_market_open": false,
-        "time_to_open": "28:47:40",
+        "time_to_open": "21:25:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -535,7 +535,7 @@
         "code": "XCAI",
         "country": "Egypt",
         "is_market_open": false,
-        "time_to_open": "79:30:40",
+        "time_to_open": "72:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -544,7 +544,7 @@
         "code": "BVCA",
         "country": "Venezuela",
         "is_market_open": false,
-        "time_to_open": "13:30:40",
+        "time_to_open": "06:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -553,7 +553,7 @@
         "code": "XCOL",
         "country": "Sri Lanka",
         "is_market_open": false,
-        "time_to_open": "28:30:40",
+        "time_to_open": "21:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -562,7 +562,7 @@
         "code": "XBIL",
         "country": "Spain",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -571,7 +571,7 @@
         "code": "XBAR",
         "country": "Spain",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -580,7 +580,7 @@
         "code": "ASEX",
         "country": "Greece",
         "is_market_open": false,
-        "time_to_open": "08:00:40",
+        "time_to_open": "00:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -589,7 +589,7 @@
         "code": "DSMD",
         "country": "Qatar",
         "is_market_open": false,
-        "time_to_open": "79:00:40",
+        "time_to_open": "71:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -598,7 +598,7 @@
         "code": "XCNQ",
         "country": "Canada",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -606,26 +606,26 @@
         "name": "NSE",
         "code": "XNSE",
         "country": "India",
-        "is_market_open": false,
-        "time_to_open": "04:15:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "03:08:26",
+        "time_after_open": "03:06:34"
     },
     {
         "name": "BSE",
         "code": "XBOM",
         "country": "India",
-        "is_market_open": false,
-        "time_to_open": "04:15:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "03:08:26",
+        "time_after_open": "03:06:34"
     },
     {
         "name": "Bovespa",
         "code": "BVMF",
         "country": "Brazil",
         "is_market_open": false,
-        "time_to_open": "13:30:40",
+        "time_to_open": "06:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -634,7 +634,7 @@
         "code": "XIST",
         "country": "Turkey",
         "is_market_open": false,
-        "time_to_open": "103:30:40",
+        "time_to_open": "96:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -642,35 +642,35 @@
         "name": "XSTU",
         "code": "XSTU",
         "country": "Germany",
-        "is_market_open": false,
-        "time_to_open": "06:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "13:08:26",
+        "time_after_open": "00:51:34"
     },
     {
         "name": "XBER",
         "code": "XBER",
         "country": "Germany",
-        "is_market_open": false,
-        "time_to_open": "06:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "11:08:26",
+        "time_after_open": "00:51:34"
     },
     {
         "name": "MYX",
         "code": "XKLS",
         "country": "Malaysia",
-        "is_market_open": false,
-        "time_to_open": "01:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "01:53:26",
+        "time_after_open": "05:51:34"
     },
     {
         "name": "IDX",
         "code": "XIDX",
         "country": "Indonesia",
         "is_market_open": false,
-        "time_to_open": "26:30:40",
+        "time_to_open": "19:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -678,17 +678,17 @@
         "name": "NZX",
         "code": "XNZE",
         "country": "New Zealand",
-        "is_market_open": true,
-        "time_to_open": "00:00:00",
-        "time_to_close": "05:15:40",
-        "time_after_open": "01:29:20"
+        "is_market_open": false,
+        "time_to_open": "15:08:26",
+        "time_to_close": "00:00:00",
+        "time_after_open": "00:00:00"
     },
     {
         "name": "JSE",
         "code": "XJSE",
         "country": "South Africa",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -697,7 +697,7 @@
         "code": "XPRA",
         "country": "Czech Republic",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -706,7 +706,7 @@
         "code": "XBUE",
         "country": "Argentina",
         "is_market_open": false,
-        "time_to_open": "14:30:40",
+        "time_to_open": "07:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -715,7 +715,7 @@
         "code": "XBUD",
         "country": "Hungary",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -724,7 +724,7 @@
         "code": "XTAE",
         "country": "Israel",
         "is_market_open": false,
-        "time_to_open": "07:29:40",
+        "time_to_open": "00:07:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -733,7 +733,7 @@
         "code": "XTAL",
         "country": "Estonia",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -742,7 +742,7 @@
         "code": "XSGO",
         "country": "Chile",
         "is_market_open": false,
-        "time_to_open": "14:00:40",
+        "time_to_open": "06:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -751,7 +751,7 @@
         "code": "XLIT",
         "country": "Lithuania",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -760,7 +760,7 @@
         "code": "XRIS",
         "country": "Latvia",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -769,7 +769,7 @@
         "code": "XADS",
         "country": "United Arab Emirates",
         "is_market_open": false,
-        "time_to_open": "102:30:40",
+        "time_to_open": "95:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -778,7 +778,7 @@
         "code": "XLUX",
         "country": "Luxembourg",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -787,7 +787,7 @@
         "code": "XLIM",
         "country": "Peru",
         "is_market_open": false,
-        "time_to_open": "15:00:40",
+        "time_to_open": "07:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -796,7 +796,7 @@
         "code": "XBAH",
         "country": "Bahrain",
         "is_market_open": false,
-        "time_to_open": "79:00:40",
+        "time_to_open": "71:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -804,17 +804,17 @@
         "name": "DSE",
         "code": "XDHA",
         "country": "Bangladesh",
-        "is_market_open": false,
-        "time_to_open": "04:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "01:38:26",
+        "time_after_open": "02:51:34"
     },
     {
         "name": "SASE",
         "code": "XSSE",
         "country": "Bosnia & Herzegovina",
         "is_market_open": false,
-        "time_to_open": "08:30:40",
+        "time_to_open": "01:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -823,7 +823,7 @@
         "code": "XBOT",
         "country": "Botswana",
         "is_market_open": false,
-        "time_to_open": "08:30:40",
+        "time_to_open": "01:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -832,7 +832,7 @@
         "code": "XBUL",
         "country": "Bulgaria",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -841,7 +841,7 @@
         "code": "XBNV",
         "country": "Costa Rica",
         "is_market_open": false,
-        "time_to_open": "14:30:40",
+        "time_to_open": "07:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -850,7 +850,7 @@
         "code": "XBRV",
         "country": "C\u00f4te d'Ivoire",
         "is_market_open": false,
-        "time_to_open": "10:15:40",
+        "time_to_open": "02:53:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -859,7 +859,7 @@
         "code": "XZAG",
         "country": "Croatia",
         "is_market_open": false,
-        "time_to_open": "08:00:40",
+        "time_to_open": "00:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -868,7 +868,7 @@
         "code": "XECM",
         "country": "Cyprus",
         "is_market_open": false,
-        "time_to_open": "08:00:40",
+        "time_to_open": "00:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -877,7 +877,7 @@
         "code": "XICE",
         "country": "Iceland",
         "is_market_open": false,
-        "time_to_open": "10:00:40",
+        "time_to_open": "02:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -886,7 +886,7 @@
         "code": "XIQS",
         "country": "Iraq",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -895,7 +895,7 @@
         "code": "XJAM",
         "country": "Jamaica",
         "is_market_open": false,
-        "time_to_open": "14:30:40",
+        "time_to_open": "07:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -904,7 +904,7 @@
         "code": "XAMM",
         "country": "Jordan",
         "is_market_open": false,
-        "time_to_open": "80:00:40",
+        "time_to_open": "72:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -912,17 +912,17 @@
         "name": "KASE",
         "code": "XKAZ",
         "country": "Kazakhstan",
-        "is_market_open": false,
-        "time_to_open": "06:50:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "05:08:26",
+        "time_after_open": "00:31:34"
     },
     {
         "name": "XKUW",
         "code": "XKUW",
         "country": "Kuwait",
         "is_market_open": false,
-        "time_to_open": "78:30:40",
+        "time_to_open": "71:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -931,7 +931,7 @@
         "code": "XBEY",
         "country": "Lebanon",
         "is_market_open": false,
-        "time_to_open": "30:30:40",
+        "time_to_open": "23:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -940,7 +940,7 @@
         "code": "XMSW",
         "country": "Malawi",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -949,7 +949,7 @@
         "code": "XMAL",
         "country": "Malta",
         "is_market_open": false,
-        "time_to_open": "08:00:40",
+        "time_to_open": "00:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -957,17 +957,17 @@
         "name": "SEM",
         "code": "XMAU",
         "country": "Mauritius",
-        "is_market_open": false,
-        "time_to_open": "05:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "03:38:26",
+        "time_after_open": "01:51:34"
     },
     {
         "name": "MSE",
         "code": "XULA",
         "country": "Mongolia",
         "is_market_open": false,
-        "time_to_open": "02:30:40",
+        "time_to_open": "19:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -976,7 +976,7 @@
         "code": "XMNX",
         "country": "Montenegro",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -985,7 +985,7 @@
         "code": "XCAS",
         "country": "Morocco",
         "is_market_open": false,
-        "time_to_open": "33:00:40",
+        "time_to_open": "25:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -994,7 +994,7 @@
         "code": "XNAM",
         "country": "Namibia",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1003,7 +1003,7 @@
         "code": "XNSA",
         "country": "Nigeria",
         "is_market_open": false,
-        "time_to_open": "33:30:40",
+        "time_to_open": "26:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1012,7 +1012,7 @@
         "code": "XMUS",
         "country": "Oman",
         "is_market_open": false,
-        "time_to_open": "78:30:40",
+        "time_to_open": "71:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1021,7 +1021,7 @@
         "code": "XPAE",
         "country": "Palestinian Territories",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1030,7 +1030,7 @@
         "code": "XPHS",
         "country": "Philippines",
         "is_market_open": false,
-        "time_to_open": "02:00:40",
+        "time_to_open": "18:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1039,7 +1039,7 @@
         "code": "XWAR",
         "country": "Poland",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1048,7 +1048,7 @@
         "code": "XBSE",
         "country": "Romania",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1057,7 +1057,7 @@
         "code": "RSEX",
         "country": "Rwanda",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1066,7 +1066,7 @@
         "code": "XBEL",
         "country": "Serbia",
         "is_market_open": false,
-        "time_to_open": "08:00:40",
+        "time_to_open": "00:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1075,7 +1075,7 @@
         "code": "XBRA",
         "country": "Slovakia",
         "is_market_open": false,
-        "time_to_open": "09:30:40",
+        "time_to_open": "02:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1084,7 +1084,7 @@
         "code": "XLJU",
         "country": "Slovenia",
         "is_market_open": false,
-        "time_to_open": "07:45:40",
+        "time_to_open": "00:23:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1093,7 +1093,7 @@
         "code": "XDAR",
         "country": "Tanzania",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1102,7 +1102,7 @@
         "code": "XTUN",
         "country": "Tunisia",
         "is_market_open": false,
-        "time_to_open": "08:30:40",
+        "time_to_open": "01:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1111,7 +1111,7 @@
         "code": "XUGA",
         "country": "Uganda",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1120,7 +1120,7 @@
         "code": "XUAX",
         "country": "Ukraine",
         "is_market_open": false,
-        "time_to_open": "08:00:40",
+        "time_to_open": "00:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1128,17 +1128,17 @@
         "name": "HNX",
         "code": "XSTC",
         "country": "Vietnam",
-        "is_market_open": false,
-        "time_to_open": "02:30:40",
-        "time_to_close": "00:00:00",
-        "time_after_open": "00:00:00"
+        "is_market_open": true,
+        "time_to_open": "00:00:00",
+        "time_to_close": "01:08:26",
+        "time_after_open": "04:51:34"
     },
     {
         "name": "LUSE",
         "code": "XLUS",
         "country": "Zambia",
         "is_market_open": false,
-        "time_to_open": "09:30:40",
+        "time_to_open": "02:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1147,7 +1147,7 @@
         "code": "XZIM",
         "country": "Zimbabwe",
         "is_market_open": false,
-        "time_to_open": "08:00:40",
+        "time_to_open": "00:38:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1156,7 +1156,7 @@
         "code": "CXAC",
         "country": "Australia",
         "is_market_open": false,
-        "time_to_open": "00:30:40",
+        "time_to_open": "17:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1166,15 +1166,15 @@
         "country": "Germany",
         "is_market_open": true,
         "time_to_open": "00:00:00",
-        "time_to_close": "20:30:40",
-        "time_after_open": "00:19:20"
+        "time_to_close": "13:08:26",
+        "time_after_open": "07:41:34"
     },
     {
         "name": "KOSDAQ",
         "code": "XKOS",
         "country": "South Korea",
         "is_market_open": false,
-        "time_to_open": "00:30:40",
+        "time_to_open": "17:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1183,7 +1183,7 @@
         "code": "XKON",
         "country": "South Korea",
         "is_market_open": false,
-        "time_to_open": "00:30:40",
+        "time_to_open": "17:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1192,7 +1192,7 @@
         "code": "XSAT",
         "country": "Sweden",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1201,7 +1201,7 @@
         "code": "DSME",
         "country": "Denmark",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1210,7 +1210,7 @@
         "code": "XESM",
         "country": "Ireland",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1219,7 +1219,7 @@
         "code": "XMSM",
         "country": "Ireland",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1228,7 +1228,7 @@
         "code": "SSME",
         "country": "Sweden",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1238,15 +1238,15 @@
         "country": "",
         "is_market_open": true,
         "time_to_open": "00:00:00",
-        "time_to_close": "14:30:39",
-        "time_after_open": "09:29:20"
+        "time_to_close": "07:08:25",
+        "time_after_open": "16:51:34"
     },
     {
         "name": "LSE",
         "code": "AIMX",
         "country": "United Kingdom",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     },
@@ -1255,7 +1255,7 @@
         "code": "BCXE",
         "country": "United Kingdom",
         "is_market_open": false,
-        "time_to_open": "07:30:40",
+        "time_to_open": "00:08:26",
         "time_to_close": "00:00:00",
         "time_after_open": "00:00:00"
     }
