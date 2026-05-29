@@ -33,9 +33,11 @@ Maps exchanges to representative Twelve Data index names and yfinance tickers, t
 
 `helper_program.generate_pdf.py`
 Consumes the enriched JSON dataset (`helper_program/json_data/top_stock_info.json`) and creates a styled landscape PDF using ReportLab with headers, a results table, and explanatory notes.
+- If it is detected that the APIs are not called successfully, checks if the directory has a cached copy of the report. If so, do not replace the copy (and send this copy to the recipient). Otherwise, the new PDF can stil be generated, although with lots of "N/A" fields.
 
 `whatsapp_bot.py`
 The orchestrator and runtime entry point. Uses Playwright to open a persistent Chromium context for WhatsApp Web, monitors the selected chat for incoming messages, uses Cohere to detect intent (whether a user requested a market PDF), and triggers `get_info_and_generate_pdf()` from `helper_program.generate_pdf` to build and send `market_report.pdf`.
+  - New messages are detected every ~5 seconds, and generating and sending the PDF takes ~10 seconds.
 
 ### How a request is handled (high-level flow)
 1. A user sends a message in the selected WhatsApp chat.
