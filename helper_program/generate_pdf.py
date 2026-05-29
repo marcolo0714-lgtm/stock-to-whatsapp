@@ -63,14 +63,14 @@ def generate_pdf(json_data, output_filename="market_report.pdf"):
         index = item.get("Index", "N/A")
         
         # Financials
-        market_cap = f"{float(item.get('Market_Cap', 0)):,.2f}" if item.get('Market_Cap', 0) is not None else "N/A"
-        open_price = f"{float(item.get('Open', 0)):,.2f}" if item.get('Open', 0) is not None else "N/A"
-        high_price = f"{float(item.get('High', 0)):,.2f}" if item.get('High', 0) is not None else "N/A"
-        low_price = f"{float(item.get('Low', 0)):,.2f}" if item.get('Low', 0) is not None else "N/A"
-        close_price = f"{float(item.get('Close', 0)):,.2f}" if item.get('Close', 0) is not None else "N/A"
+        market_cap = f"{float(item.get('Market_Cap')):,.2f}" if item.get('Market_Cap') is not None else "N/A"
+        open_price = f"{float(item.get('Open')):,.2f}" if item.get('Open') is not None else "N/A"
+        high_price = f"{float(item.get('High')):,.2f}" if item.get('High') is not None else "N/A"
+        low_price = f"{float(item.get('Low')):,.2f}" if item.get('Low')is not None else "N/A"
+        close_price = f"{float(item.get('Close')):,.2f}" if item.get('Close') is not None else "N/A"
         
         # Performance
-        daily_change = float(item.get("Daily_Change", 0)) if item.get("Daily_Change") != "N/A" else "N/A"
+        daily_change = float(item.get("Daily_Change")) if item.get("Daily_Change") is not None else "N/A"
         change_color = "green" if daily_change != "N/A" and daily_change >= 0 else "red"
         change_sign = "+" if daily_change != "N/A" and daily_change >= 0 else ""
         
@@ -83,6 +83,7 @@ def generate_pdf(json_data, output_filename="market_report.pdf"):
         else:
             status_text = "N/A"
             time_info = "N/A"
+            date = "N/A"
 
         # Create rich-text Paragraphs for each cell to handle grouping and line breaks
         col_rank = Paragraph(rank, cell_center)
@@ -182,22 +183,32 @@ def get_info_and_generate_pdf():
         from choose_top_stock import get_top_markets
         from get_stock_info import get_stock_info, get_stock_status, get_stock_quote
 
-    base_dir = Path(__file__).resolve().parent
-    json_path = base_dir / "json_data" / "top_stock_info.json"
+    path = "helper_program/json_data/top_stock_info.json"
 
     # Prepare TOP_STOCKS json to generate the PDF
-    TOP_STOCKS, status = get_top_markets(num_stocks=10, use_current_month = True, month="September", year=2017)  
+    TOP_STOCKS, status = get_top_markets(num_stocks=15, use_current_month = False, month="november", year=2023)  
     TOP_STOCKS, status = get_stock_info(TOP_STOCKS)
-    TOP_STOCKS, status = get_stock_status(TOP_STOCKS, use_sample_states=False)
-    TOP_STOCKS, status = get_stock_quote(TOP_STOCKS)
+    TOP_STOCKS, status1 = get_stock_status(TOP_STOCKS, use_sample_states=False)
+    TOP_STOCKS, status2 = get_stock_quote(TOP_STOCKS)
     
-    # Write to top_stock_info.json for reference, then read from it
-    with open(json_path, "w") as f:
-        json.dump(TOP_STOCKS, f, indent=4)
-    with open(json_path, "r") as f:
-        json_list = json.load(f)
-    
+
+    try:
+        f = open(path)
+        f.close()
+        # If the path exists, write the json only when latest info is obtained
+        if status1 and status2:
+            with open(path, "w") as f:
+                json.dump(TOP_STOCKS, f, indent=4)
+                print("Information obtained and updated at:", path)
+    except:
+        # If the path does not exist, always write the json
+        with open(path, "w") as f:
+            json.dump(TOP_STOCKS, f, indent=4)
+            print("Information obtained and updated at:", path)
+
     # Generate the PDF report using the loaded JSON data
+    with open(path, "r") as f:
+        json_list = json.load(f)
     generate_pdf(json_list, output_filename="market_report.pdf")
 
 if __name__ == "__main__":

@@ -83,7 +83,7 @@ python whatsapp_bot.py
 6. If Cohere detects a request for a stock market report, the bot generates `market_report.pdf` and sends it.
 
 ## Video Showcase
-<video src="github_asset/Stock-to-whatsapp_showcase.mp4" width="100%" controls></video>
+[![Watch the video](https://youtu.be/QLa7MvjFv84)](https://youtu.be/QLa7MvjFv84)
 
 ## Limitations
 

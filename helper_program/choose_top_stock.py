@@ -3,7 +3,7 @@ import requests
 from io import StringIO
 
 # Default number of top stocks to retrieve
-stock_num = 20
+stock_num = 10
 
 def get_current_month_year():
     from datetime import datetime
@@ -83,7 +83,7 @@ def get_top_markets(num_stocks=stock_num, use_current_month=True, month=None, ye
         return TOP_TEN_STOCK, 0
 
 if __name__ == "__main__":
-    top_markets, status= get_top_markets(stock_num, use_current_month=True, month="april", year=2015)
+    top_markets, status= get_top_markets(stock_num, use_current_month=True, month="december", year=2015)
     
     print("\n--- Top " + str(stock_num) + " Global Stock Markets ---" if status == 1 else "\n--- Default List of Top 10 Global Stock Markets ---")
     for market in top_markets:

@@ -5,3 +5,4 @@ reportlab
 yfinance
 pandas
 requests
+html5lib

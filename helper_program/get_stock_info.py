@@ -193,21 +193,24 @@ def get_stock_quote(TOP_STOCKS):
             daily_returns = df['Close'].pct_change() * 100
             latest_pct_change = str(daily_returns.iloc[-1])
         else:
-            latest_pct_change = "N/A"
+            latest_pct_change = None
             
         # Extract the most recent closing price and percentage change
-        open = df['Open'].iloc[-1]
-        high = df['High'].iloc[-1]
-        low = df['Low'].iloc[-1]
-        close = df['Close'].iloc[-1]
-        date = df.index[-1].strftime('%Y-%m-%d')
+        try:
+            open = df['Open'].iloc[-1]
+            high = df['High'].iloc[-1]
+            low = df['Low'].iloc[-1]
+            close = df['Close'].iloc[-1]
+            date = df.index[-1].strftime('%Y-%m-%d')
 
-        stock['Daily_Change'] = latest_pct_change
-        stock['Open'] = open
-        stock['High'] = high
-        stock['Low'] = low
-        stock['Close'] = close
-        stock['Quote_Date'] = str(date)
+            stock['Daily_Change'] = latest_pct_change
+            stock['Open'] = open
+            stock['High'] = high
+            stock['Low'] = low
+            stock['Close'] = close
+            stock['Quote_Date'] = str(date)
+        except:
+            pass
 
     return TOP_STOCKS, 1  # Return the enriched TOP_STOCKS list along with a success status code (1)
 
@@ -215,16 +218,22 @@ def get_stock_quote(TOP_STOCKS):
 if __name__ == "__main__":
     from choose_top_stock import get_top_markets
 
-    TOP_STOCKS, status = get_top_markets(num_stocks=20)  
+    TOP_STOCKS, status = get_top_markets(num_stocks=20, use_current_month=False, month="june", year=2026)
     TOP_STOCKS, status = get_stock_info(TOP_STOCKS)
-    TOP_STOCKS, status = get_stock_status(TOP_STOCKS, use_sample_states=False)
-    TOP_STOCKS, status = get_stock_quote(TOP_STOCKS)
+    TOP_STOCKS, status1 = get_stock_status(TOP_STOCKS, use_sample_states=False)
+    TOP_STOCKS, status2 = get_stock_quote(TOP_STOCKS)
 
+    path = "helper_program/json_data/top_stock_info.json"
     try:
-        with open("helper_program/json_data/top_stock_info.json", "w") as f:
+        f = open(path)
+        f.close()
+        # If the path exists, write the json only when latest info is obtained
+        if status1 and status2:
+            with open(path, "w") as f:
+                json.dump(TOP_STOCKS, f, indent=4)
+                print("Information obtained and updated at:", path)
+    except:
+        # If the path does not exist, always write the json
+        with open(path, "w") as f:
             json.dump(TOP_STOCKS, f, indent=4)
-            print("Information obtained and updated!")
-    except FileNotFoundError:
-        with open("json_data/top_stock_info.json", "w") as f:
-            json.dump(TOP_STOCKS, f, indent=4)
-            print("Information obtained and updated!")
+            print("Information obtained and updated at:", path)
