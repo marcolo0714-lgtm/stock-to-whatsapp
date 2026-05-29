@@ -3,7 +3,7 @@ import time
 from dotenv import load_dotenv
 from playwright.sync_api import sync_playwright
 import cohere
-from helper_program.generate_pdf import get_info_and_generate_pdf
+from src.generate_pdf import get_info_and_generate_pdf
 
 # Load your COHERE_API_KEY from a .env file
 load_dotenv()

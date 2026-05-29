@@ -79,7 +79,7 @@ def get_stock_info(TOP_STOCKS):
                 stock['Exchange'] = contained_by_match  # Update the exchange name to the matched key for consistency
             else:
                 print(f"Could not find a mapping for exchange '{exchange}'. Defaulting to use default data.")
-                from helper_program.DEFAULT_DATA.top_10_stock import TOP_TEN_STOCK
+                from src.DEFAULT_DATA.top_10_stock import TOP_TEN_STOCK
                 TOP_STOCKS = TOP_TEN_STOCK
                 return TOP_STOCKS, 2  # Return the default data and a status code indicating default data usage
             
@@ -223,7 +223,7 @@ if __name__ == "__main__":
     TOP_STOCKS, status1 = get_stock_status(TOP_STOCKS, use_sample_states=False)
     TOP_STOCKS, status2 = get_stock_quote(TOP_STOCKS)
 
-    path = "helper_program/json_data/top_stock_info.json"
+    path = "src/json_data/top_stock_info.json"
     try:
         f = open(path)
         f.close()

@@ -183,10 +183,10 @@ def get_info_and_generate_pdf():
         from choose_top_stock import get_top_markets
         from get_stock_info import get_stock_info, get_stock_status, get_stock_quote
 
-    path = "helper_program/json_data/top_stock_info.json"
+    path = "src/json_data/top_stock_info.json"
 
     # Prepare TOP_STOCKS json to generate the PDF
-    TOP_STOCKS, status = get_top_markets(num_stocks=15, use_current_month = False, month="november", year=2023)  
+    TOP_STOCKS, status = get_top_markets(num_stocks=15, use_current_month = True, month="november", year=2023)  
     TOP_STOCKS, status = get_stock_info(TOP_STOCKS)
     TOP_STOCKS, status1 = get_stock_status(TOP_STOCKS, use_sample_states=False)
     TOP_STOCKS, status2 = get_stock_quote(TOP_STOCKS)

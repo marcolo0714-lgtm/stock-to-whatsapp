@@ -5,22 +5,23 @@ A Python automation project that generates a top stock market PDF report and sen
 ## What it does
 
 - Selects the top stock markets dynamically from the latest monthly WFE Market Statistics report.
-  - If a new report includes exchanges not in the dictionary, it falls back to a default top list from May 2026.
 - Uses Twelve Data and yfinance to enrich each market with current status and quote data.
   - Uses a hardcoded mapping of 20 exchange names to symbol/index values.
+  - If a new report includes exchanges not in the dictionary, it falls back to a default top list from May 2026.
 - Generates a styled PDF report with ReportLab.
-  - If it is detected that the APIs are not called successfully, checks if the directory has a cached copy of the report. If so, do not replace the copy (and send this copy to the recipient). Otherwise, the new PDF can stil be generated, although with lots of "N/A" fields.
+  - If it is detected that the APIs are not called successfully, checks if the directory has a cached copy of the report. If so, do not replace the copy (and send this copy to the recipient). Otherwise, the new PDF can still be generated, although with lots of "N/A" fields.
 - Uses Playwright and Cohere to automate WhatsApp Web and send the report when a request is detected.
-  - New messages are detected every ~5 seconds, and generating and sending the PDF takes ~10 seconds.
+  - New messages are detected every ~5 seconds, and generating and sending the PDF takes ~8 seconds.
+  - The message is passed through AI, Cohere, for intent classification. Any messages intending to request market information will trigger to request.
 
 ## Key files
 
 - `whatsapp_bot.py` - main automation script and WhatsApp listener.
-- `helper_program/generate_pdf.py` - collects stock data and generates `market_report.pdf`.
-- `helper_program/get_stock_info.py` - maps exchanges to symbols, fetches market status from Twelve Data, and fetches quotes from yfinance.
-- `helper_program/choose_top_stock.py` - scrapes WFE monthly reports and selects the top stock markets.
-- `helper_program/json_data/global_exchanges.json`, `helper_program/json_data/global_states.json` - local cached market metadata and states.
-- `helper_program/json_data/top_stock_info.json` - generated JSON with the final stock report data.
+- `src/generate_pdf.py` - collects stock data and generates `market_report.pdf`.
+- `src/get_stock_info.py` - maps exchanges to symbols, fetches market status from Twelve Data, and fetches quotes from yfinance.
+- `src/choose_top_stock.py` - scrapes WFE monthly reports and selects the top stock markets.
+- `src/json_data/global_exchanges.json`, `src/json_data/global_states.json` - local cached market metadata and states.
+- `src/json_data/top_stock_info.json` - generated JSON with the final stock report data.
 
 ## Requirements
 
@@ -94,15 +95,14 @@ Showcase 2: Detecting multiple message from myself
 
 ## Limitations
 
-- The stock mapping in `get_stock_info.py` is hardcoded based on the Twelve Data API on stock exchange information, my limited knowledge, and checking using Gen-AI. I cannot gaurantee that the mapping to stock symbols and representative indices are 100% correct and updated. 
-- Moreover, as the mapping only includes the 20 stock exchanges from the top 20 in 2026/5, if any new stock exchanges rise up in the future, this program cannot obtain its information and resort to display the up-to-date information of the default 10 stock exchanges.
+- The stock mapping dictionary in `get_stock_info.py` is currently a static configuration validated against May 2026 market identifiers. While highly accurate for the current top 20 exchanges, dynamic resolution of new emerging exchanges is not yet supported and will default to the top 10 stock exchanges in May 2026.
 - The repository currently relies heavily on DOM selectors from WhatsApp Web. If WhatsApp updates its web layout, CSS selectors in `whatsapp_bot.py` may need updating.
 - The repository also relies on WFE's monthly report webpage (https://focus.world-exchanges.org/issue/may-2026/market-statistics for 2026/5 report). While this webpage is generally stable in terms of its webpage structure throughout years, CSS selectors in `choose_top_stock.py` may need updating if WFE webpage changes its structure.
-- After you have select the recipient to receive the PDF (step 4 of Usage), you should not switch to another recipient or type any message to the recipient, as these actions will interfere with the program's operation.
-- This repository relies on several external API calls (Twelve Data, Yahoo Finance). If the API cannot be called (due to Free account's rate limits, weak Internet connection, ...), a cached copy of PDF may be used (which is not entirely up-to-date), or the generated PDF will have a large amount of missing fields.
+- After the user have selected the recipient to receive the PDF (step 4 of Usage), the server should not switch to another recipient or type any message to the recipient, as these actions will interfere with the program's operation.
+- This repository relies on several external API calls (Twelve Data, Yahoo Finance). If the API cannot be called (due to Free account's rate limits, weak Internet connection, ...), a cached copy of PDF may be used (which is not entirely up-to-date). If the cached copy does not exist, the generated PDF will have a large amount of missing fields.
 
 ## Compliance
 
-1. Observe the rate limits of Twelve Data and Cohere API calls, as shown in the Configuration session.
+1. Observe the rate limits of Twelve Data and Cohere API calls, as shown in the Configuration section.
 2. Browser Automation techniques (mainly the Playwright library) are used when visiting WFE webpage and for the Whatsapp bot. While personal use of this technique should cause no consequences, please note that inappropriate use of Browser Automation, such as visiting WFE webpage at an extremely high frequency and sending Whatsapp messages at a high rate, may cause legal consequences under their Terms and Conditions.
-3. This repository, including the codes and other files in the report, do not include any license files. Only use the code for non-conmmercial purposes.
+3. This repository, including the codes and other files in the report, do not include any license files. Only use the code for non-commmercial purposes.
