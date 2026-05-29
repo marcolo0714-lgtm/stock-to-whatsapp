@@ -44,13 +44,13 @@ python -m venv .venv
 
 ```powershell
 python -m pip install --upgrade pip
-python -m pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 4. Install Playwright browser support:
 
 ```powershell
-python -m playwright install chromium
+playwright install chromium
 ```
 
 ## Configuration
