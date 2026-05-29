@@ -4,7 +4,7 @@ A Python automation project that generates a top stock market PDF report and sen
 
 ## What it does
 
-- Selects the top stock markets dynamically from the latest monthly WFE Market Statistics report.
+- Selects the top stock markets by market capitalization dynamically from the latest monthly WFE Market Statistics report (https://focus.world-exchanges.org/issue/may-2026/market-statistics for 2026/5 report).
 - Uses Twelve Data and yfinance to enrich each market with current status and quote data.
   - Uses a hardcoded mapping of 20 exchange names to symbol/index values.
   - If a new report includes exchanges not in the dictionary, it falls back to a default top list from May 2026.
@@ -97,7 +97,7 @@ Showcase 2: Detecting multiple message from myself
 
 - The stock mapping dictionary in `get_stock_info.py` is currently a static configuration validated against May 2026 market identifiers. While highly accurate for the current top 20 exchanges, dynamic resolution of new emerging exchanges is not yet supported and will default to the top 10 stock exchanges in May 2026.
 - The repository currently relies heavily on DOM selectors from WhatsApp Web. If WhatsApp updates its web layout, CSS selectors in `whatsapp_bot.py` may need updating.
-- The repository also relies on WFE's monthly report webpage (https://focus.world-exchanges.org/issue/may-2026/market-statistics for 2026/5 report). While this webpage is generally stable in terms of its webpage structure throughout years, CSS selectors in `choose_top_stock.py` may need updating if WFE webpage changes its structure.
+- The repository also relies on WFE's monthly report webpage . While this webpage is generally stable in terms of its webpage structure throughout years, CSS selectors in `choose_top_stock.py` may need updating if WFE webpage changes its structure.
 - After the user have selected the recipient to receive the PDF (step 4 of Usage), the server should not switch to another recipient or type any message to the recipient, as these actions will interfere with the program's operation.
 - This repository relies on several external API calls (Twelve Data, Yahoo Finance). If the API cannot be called (due to Free account's rate limits, weak Internet connection, ...), a cached copy of PDF may be used (which is not entirely up-to-date). If the cached copy does not exist, the generated PDF will have a large amount of missing fields.
 
