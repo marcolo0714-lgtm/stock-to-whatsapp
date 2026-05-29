@@ -56,7 +56,7 @@ The orchestrator and runtime entry point. Uses Playwright to open a persistent C
   - Act as offline samples for development/testing. For example, `helper_program/get_stock_info.get_stock_status()` accepts parameter `use_sample_data`, which helps reduce rate-limited API calls when testing.
 3. Fallbacks at multiple layers
 - When WFE scraping fails, the default dataset is loaded.
-- When Twelve Data or yfinance calls fail, the system returns status codes and preserves previously cached data.
+- When Twelve Data or yfinance calls fail, the system returns status codes and preserves previously cached report.
 - Playwright DOM selectors are wrapped with wait/try logic.
 These all ensure smooth running of the system.
 
@@ -81,11 +81,11 @@ Testing these together as it is difficult to evaluate get_stock_info.py without 
 
 - Test case 2: Testing at different time and for different version of top stocks
   - I also tested this program at different times (at night, versus at noon in the above), and also from top 15 stocks as in 2021/7. The corresponding PDFs are successfully generated.
-  - Note that the stock 'Tadawul' has "N/A" fields, I checked that it is because their latest quote date is ~7 days prior to the time of testing. After I changed my program to obtain latest 10 days from yfinance quotes, their quotes can be obtained (shown in `/generate_pdf1 Output/market_report_night2`). However, I still keep to only obtain quotes from latest 5 days, as yfinance will sometimes block my access if I obtain a large amount of quotes at a short period of time (this has happened during my testing).
+  - Note that the stock 'Tadawul' has "N/A" fields, I checked that it is because their latest quote date is ~7 days prior to the time of testing. After I changed my program to obtain latest 10 days from yfinance quotes, their quotes can be obtained (shown in `/generate_pdf3 Output/market_report_night2`). However, I still keep to only obtain quotes from latest 5 days, as yfinance will sometimes block my access if I obtain a large amount of quotes at a short period of time (this has happened during my testing).
   - Output references: In `/generate_pdf2 Output` folder
 
 - Test case 3: Testing cases where APIs cannot be called successfully
-  - I turned off my Internet and run this program to see what happens if the APIs cannot be called. As expected, if the root directory does not contain `market_report.pdf`, it will generate a PDF will lots of "N/A" fields (sample in `/generate_pdf1 Output/market_report_night2`) at the root directory. Otherwise, it will not replace the existing PDF.
+  - I turned off my Internet and run this program to see what happens if the APIs cannot be called. As expected, if the root directory does not contain `market_report.pdf`, it will generate a PDF will lots of "N/A" fields (sample in `/generate_pdf3 Output/market_report_no_wifi`) at the root directory. Otherwise, it will not replace the existing PDF.
   - Output references: In `/generate_pdf3 Output` folder
 
 ### Testing of `whatsapp_bot.py`
@@ -108,9 +108,10 @@ There are still some limitations in this project. For instance,
 - When API access is unavailable or rate-limited, generated reports may contain many "N/A" fields, and the bot may fall back to sending an older PDF copy if one already exists.
 - The system assumes the user keeps the selected WhatsApp recipient open and does not switch chats while the bot is running, or else message detection may become unreliable.
 - The current implementation is designed for small-scale, on-demand use rather than high-frequency automated distribution.
+
 However, the current project is still considered suitable and sufficient for personal use.
 
-## 6. Future Direction
+## 6. Possible Future Directions
 - Migrate from WhatsApp Web automation to an official WhatsApp Business API integration. This would reduce dependence on browser DOM selectors and improve reliability, but it requires registering a legitimate business account and subscribing to the WhatsApp Business API through an approved provider.
 - Add a subscription-based delivery model so users can receive the PDF report automatically on a schedule (daily, weekly, market open/close) instead of requiring an explicit request message each time.
 - Improve exchange coverage by replacing hardcoded symbol mappings with a dynamic exchange-symbol lookup service, or by using a richer market metadata provider to support new exchanges over time.
