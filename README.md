@@ -88,9 +88,11 @@ python whatsapp_bot.py
 ## Video Showcase
 Showcase 1: Detecting 1 message from my friend
   - Note that the waiting time is mainly due to wait() functions set by me (but not due to processing). They can be reduced, as showcased in Showcase 2 below.
+
 [![Watch the video](https://youtu.be/QLa7MvjFv84)](https://youtu.be/QLa7MvjFv84)
 
 Showcase 2: Detecting multiple message from myself
+
 [![Watch the video](https://youtu.be/60hTNko3qJk)](https://youtu.be/60hTNko3qJk)
 
 ## Limitations

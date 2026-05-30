@@ -14,10 +14,6 @@ This project automates the end-to-end generation and delivery of a concise top-s
 - Small investing teams or automated systems that want scheduled or on-request market summaries.
 - Personal or group chats where non-technical users can get a glimpse of the top stock exchanges.
 
-### Scope and constraints:
-- The system depends on third-party web pages and APIs (WFE, Twelve Data, Yahoo Finance) and therefore inherits their availability and schema stability.
-- WhatsApp delivery relies on Playwright DOM selectors for WhatsApp Web; changes to WhatsApp Web may require selector updates.
-- The repository contains a hardcoded exchange-to-symbol mapping for resilience; if an exchange is new or unmapped, a default dataset is used as fallback.
 
 ## 2. Methodology
 
@@ -54,17 +50,16 @@ The orchestrator and runtime entry point. Uses Playwright to open a persistent C
 1. Primary live sources: WFE (choose top exchanges), Twelve Data (market states / exchange metadata), and Yahoo Finance (quotes via `yfinance`).
   - These data sources are credible, continuously updating, free of charge to access, and well-known.
 2. Local cached JSON files (`src/json_data/global_states.json`, `src/json_data/top_stock_info.json`) in `src/json_data`
-  - Act as offline samples for development/testing. For example, `src/get_stock_info.get_stock_status()` accepts parameter `use_sample_data`, which helps reduce rate-limited API calls when testing.
+  - Act as offline samples for development/testing. For example, `src.get_stock_info.get_stock_status()` accepts parameter `use_sample_data`, which helps reduce rate-limited API calls when testing.
 3. Fallbacks at multiple layers
-- When WFE scraping fails, the default dataset is loaded.
-- When Twelve Data or yfinance calls fail, the system returns status codes and preserves previously cached report.
-- Playwright DOM selectors are wrapped with wait/try logic.
-
-These all ensure smooth running of the system.
+  - When WFE scraping fails, the default dataset is loaded.
+  - When Twelve Data or yfinance calls fail, the system returns status codes and preserves previously cached report.
+  - Playwright DOM selectors are wrapped with wait/try logic.
+- These all ensure smooth running of the system.
 
 
 ## 3. Evaluation Dataset
-For the formal evaluation phase, the system was configured to bypass local fallback mock data and interact strictly with live production APIs (WFE, Twelve Data, Yahoo Finance) to validate real-time data ingestion and processing.
+For the formal evaluation phase, the system was configured to bypass local fallback mock data and interact strictly with live production APIs (WFE, Twelve Data, Yahoo Finance) to validate real-time data ingestion and processing. No sample dataset was used, though some checking references are included in the following output folders.
 
 ## 4. Evaluation Methods
 ### Functional Testing of `choose_top_stock.py`
@@ -75,14 +70,14 @@ For the formal evaluation phase, the system was configured to bypass local fallb
 - Output references: In `/choose_top_stock Output` folder
 
 ### Functional Testing of `get_stock_info.py` and `generate_pdf.py`
-Testing these together as it is difficult to evaluate get_stock_info.py without generate the corresponding PDF file for viewing. In the testing, the main function of `generate_pdf.py` is run at the root directory of the project repository.
+Testing these together as it is difficult to evaluate `get_stock_info.py` without generate the corresponding PDF file for viewing. In the testing, the main function of `generate_pdf.py` is run at the root directory of the project repository.
 - Test case 1: PDF generation and correctness of information
-  - The function was evaluated by retrieving information from top 20 stocks (as determined by `choose_top_stock.py`) as in 2026/6 (and the stock information are retrieved in real time). The PDF is successfully generated, and I sampled 2 stock information (Nasdaq and HKEX) from their official websites to check the correctness right after the PDF is generated, which are both found to be correct.
+  - The function was evaluated by retrieving information from top 20 stocks (as determined by `choose_top_stock.py`) as in `2026/6` (and the stock information are retrieved in real time). The PDF is successfully generated, and 2 stock information (Nasdaq and HKEX) was sampled from their official websites to check the correctness right after the PDF is generated, which are both found to be correct.
   - Output references: In `/generate_pdf1 Output` folder
 
 - Test case 2: Testing at different time and for different version of top stocks
   - The function was evaluated at different time of day, and also from top 15 stocks as in `2021/7`. All the corresponding PDFs are successfully generated.
-  - Note that the stock 'Tadawul' has "N/A" fields (in `/generate_pdf3 Output/market_report_night1`) because their latest quote date is ~7 days prior to the time of testing. After the program is changed to obtain latest 10 days from yfinance quotes, their quotes can then be correctly obtained (shown in `/generate_pdf3 Output/market_report_night2`). However, I still decide to only keep obtaining quotes from latest 5 days, as yfinance will sometimes block the program's access if it obtain a large amount of quotes at a short period of time (this has happened during my testing).
+  - Note that the stock 'Tadawul' has "N/A" fields (in `/generate_pdf3 Output/market_report_night1`) because their latest quote date is ~7 days prior to the time of testing. After the program is changed to obtain latest 10 days from yfinance quotes, their quotes can then be correctly obtained (shown in `/generate_pdf3 Output/market_report_night2`). However, it is still decided that the system only keeps obtaining quotes from latest 5 days, as yfinance will sometimes block the program's access if it obtain a large amount of quotes at a short period of time (this has happened during the testing stage).
   - Output references: In `/generate_pdf2 Output` folder
 
 - Test case 3: Testing cases where APIs cannot be called successfully
