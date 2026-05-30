@@ -55,7 +55,7 @@ The orchestrator and runtime entry point. Uses Playwright to open a persistent C
   - When WFE scraping fails, the default dataset is loaded.
   - When Twelve Data or yfinance calls fail, the system returns status codes and preserves previously cached report.
   - Playwright DOM selectors are wrapped with wait/try logic.
-- These all ensure smooth running of the system.
+These all ensure smooth running of the system.
 
 
 ## 3. Evaluation Dataset
