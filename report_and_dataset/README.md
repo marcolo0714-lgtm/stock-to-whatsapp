@@ -21,17 +21,17 @@ This project automates the end-to-end generation and delivery of a concise top-s
 - The project is organized into a small set of cooperating modules that fetch, normalize, render, and deliver market information.
 
 ### Main components
-`src/choose_top_stock.py`
+1. `src/choose_top_stock.py`
 Scrapes the World Federation of Exchanges (WFE) monthly "Market Statistics" page based on the current month, and extracts the top exchanges by market capitalization. If scraping fails or table layout changes, a local default (`src/DEFAULT_DATA/top_10_stock.py`) is used as a safe fallback.
 
-`src/get_stock_info.py`
+2. `src/get_stock_info.py`
 Maps exchanges to representative Twelve Data index names and yfinance tickers, then fetches global market state metadata to Twelve Data API (temporarily cached in `src/json_data/global_states.json`), and retrieves recent quotes from Yahoo Finance via `yfinance`.
 
-`src/generate_pdf.py`
+3. `src/generate_pdf.py`
 Consumes the enriched JSON dataset (`src/json_data/top_stock_info.json`) and creates a styled landscape PDF using ReportLab with headers, a results table, and explanatory notes.
-- If it is detected that the APIs are not called successfully, checks if the directory has a cached copy of the report. If so, do not replace the copy (and send this copy to the recipient). Otherwise, the new PDF can stil be generated, although with lots of "N/A" fields.
+    - If it is detected that the APIs are not called successfully, checks if the directory has a cached copy of the report. If so, do not replace the copy (and send this copy to the recipient). Otherwise, the new PDF can stil be generated, although with lots of "N/A" fields.
 
-`whatsapp_bot.py`
+4. `whatsapp_bot.py`
 The orchestrator and runtime entry point. Uses Playwright to open a persistent Chromium context for WhatsApp Web, monitors the selected chat for incoming messages, uses Cohere to detect intent (whether a user requested a market PDF), and triggers `get_info_and_generate_pdf()` from `src/generate_pdf` to build and send `market_report.pdf`.
 
 ### How a request is handled (high-level flow)
@@ -52,10 +52,10 @@ The orchestrator and runtime entry point. Uses Playwright to open a persistent C
 2. Local cached JSON files (`src/json_data/global_states.json`, `src/json_data/top_stock_info.json`) in `src/json_data`
   - Act as offline samples for development/testing. For example, `src.get_stock_info.get_stock_status()` accepts parameter `use_sample_data`, which helps reduce rate-limited API calls when testing.
 3. Fallbacks at multiple layers
-  - When WFE scraping fails, the default dataset is loaded.
-  - When Twelve Data or yfinance calls fail, the system returns status codes and preserves previously cached report.
-  - Playwright DOM selectors are wrapped with wait/try logic.
-These all ensure smooth running of the system.
+    - When WFE scraping fails, the default dataset is loaded.
+    - When Twelve Data or yfinance calls fail, the system returns status codes and preserves previously cached report.
+    - Playwright DOM selectors are wrapped with wait/try logic.
+- These all ensure smooth running of the system.
 
 
 ## 3. Evaluation Dataset

@@ -68,7 +68,7 @@ Both keys can be obtained for free, but you need to create accounts, and their u
   - Free accounts are limited to 8 API calls per minute and 800 API calls per day.
   - This program uses 1 API call for processing each PDF request from recipient.
 - COHERE_API_KEY: https://dashboard.cohere.com/
-  - Free accounts are limited to 20 API calls per minute.
+  - Free accounts are limited to 20 API calls per minute and 1000 API calls per month.
   - This program uses 1 API call for processing each recipient's Whatsapp message.
 
 ## Usage
