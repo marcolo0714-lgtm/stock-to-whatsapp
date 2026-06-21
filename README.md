@@ -85,15 +85,15 @@ python whatsapp_bot.py
 5. The bot will listen for incoming messages from the selected recipient.
 6. If Cohere detects a request for a stock market report, the bot generates `market_report.pdf` and sends it.
 
-## Video Showcase
+## Video Showcase (Control+Click on the thumbnail to watch)
 Showcase 1: Detecting 1 message from my friend
   - Note that the waiting time is mainly due to wait() functions set by me (but not due to processing). They can be reduced, as showcased in Showcase 2 below.
 
-[![Watch the video](https://youtu.be/QLa7MvjFv84)](https://youtu.be/QLa7MvjFv84)
+[![Watch the video](https://img.youtube.com/vi/QLa7MvjFv84/maxresdefault.jpg)](https://youtu.be/QLa7MvjFv84)
 
 Showcase 2: Detecting multiple message from myself
 
-[![Watch the video](https://youtu.be/60hTNko3qJk)](https://youtu.be/60hTNko3qJk)
+[![Watch the video](https://img.youtube.com/vi/60hTNko3qJk/maxresdefault.jpg)](https://youtu.be/60hTNko3qJk)
 
 ## Limitations
 
